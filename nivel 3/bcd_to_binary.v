@@ -1,4 +1,4 @@
-module BcdToBinary(bcd_in, binary_out);
+module bcd_to_binary(bcd_in, binary_out);
   input [3:0] bcd_in;
   output [2:0] binary_out;
 
