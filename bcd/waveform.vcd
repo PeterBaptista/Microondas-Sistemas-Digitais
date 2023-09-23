@@ -1,0 +1,34 @@
+$date
+	Sat Sep 23 16:16:47 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test_bcd_to_binary $end
+$var wire 3 ! binary_out [2:0] $end
+$var reg 4 " bcd_in [3:0] $end
+$scope module dut $end
+$var wire 4 # bcd_in [3:0] $end
+$var wire 3 $ binary_out [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1 $
+b1 #
+b1 "
+b1 !
+$end
+#10
+b111 !
+b111 $
+b1010 "
+b1010 #
+#20
