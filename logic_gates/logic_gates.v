@@ -1,4 +1,4 @@
-module LogicGates (
+module logic_gates (
     input wire a,       // Entrada A
     input wire b,       // Entrada B
     output wire and_out, // Saída da porta lógica AND

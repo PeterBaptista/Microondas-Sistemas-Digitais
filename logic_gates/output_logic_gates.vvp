@@ -1,0 +1,58 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000023fd9b2a2d0 .scope module, "testbench_logic_gates" "testbench_logic_gates" 2 1;
+ .timescale 0 0;
+v0000023fd9b2a500_0 .var "a", 0 0;
+v0000023fd9a05ce0_0 .net "and_out", 0 0, L_0000023fd9a05f60;  1 drivers
+v0000023fd9a05d80_0 .var "b", 0 0;
+v0000023fd9a05e20_0 .net "not_out", 0 0, L_0000023fd9b28920;  1 drivers
+v0000023fd9a05ec0_0 .net "or_out", 0 0, L_0000023fd9b298c0;  1 drivers
+S_0000023fd9a05b50 .scope module, "uut" "logic_gates" 2 8, 3 1 0, S_0000023fd9b2a2d0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "and_out";
+    .port_info 3 /OUTPUT 1 "or_out";
+    .port_info 4 /OUTPUT 1 "not_out";
+L_0000023fd9a05f60 .functor AND 1, v0000023fd9b2a500_0, v0000023fd9a05d80_0, C4<1>, C4<1>;
+L_0000023fd9b298c0 .functor OR 1, v0000023fd9b2a500_0, v0000023fd9a05d80_0, C4<0>, C4<0>;
+L_0000023fd9b28920 .functor NOT 1, v0000023fd9b2a500_0, C4<0>, C4<0>, C4<0>;
+v0000023fd99d30b0_0 .net "a", 0 0, v0000023fd9b2a500_0;  1 drivers
+v0000023fd99d2c30_0 .net "and_out", 0 0, L_0000023fd9a05f60;  alias, 1 drivers
+v0000023fd9b28b50_0 .net "b", 0 0, v0000023fd9a05d80_0;  1 drivers
+v0000023fd9b28880_0 .net "not_out", 0 0, L_0000023fd9b28920;  alias, 1 drivers
+v0000023fd9b2a460_0 .net "or_out", 0 0, L_0000023fd9b298c0;  alias, 1 drivers
+    .scope S_0000023fd9b2a2d0;
+T_0 ;
+    %vpi_call 2 20 "$dumpfile", "waveform.vcd" {0 0 0};
+    %vpi_call 2 21 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000023fd9b2a2d0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000023fd9b2a500_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000023fd9a05d80_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000023fd9b2a500_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000023fd9a05d80_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000023fd9b2a500_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 41 "$display", "Simula\303\247\303\243o conclu\303\255da!" {0 0 0};
+    %vpi_call 2 42 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test_logic_gates.v";
+    "logic_gates.v";

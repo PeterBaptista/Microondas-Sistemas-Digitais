@@ -1,36 +1,45 @@
-module test_logic_gates;
+module testbench_logic_gates;
 
-  reg a, b;
-  wire and_out, or_out, not_a;
+    // Declaração dos sinais de entrada e saída
+    reg a, b;
+    wire and_out, or_out, not_out;
 
-  // Instância das portas lógicas
-  and_gate uut_and (
-    .a(a),
-    .b(b),
-    .out(and_out)
-  );
+    // Instância do módulo logic_gates
+    logic_gates uut (
+        .a(a),
+        .b(b),
+        .and_out(and_out),
+        .or_out(or_out),
+        .not_out(not_out)
+    );
 
-  or_gate uut_or (
-    .a(a),
-    .b(b),
-    .out(or_out)
-  );
+    // Simulação de estímulo
+    initial begin
+       
+       // Start simulation
+      $dumpfile("waveform.vcd"); // Specify the waveform file name
+      $dumpvars(0, testbench_logic_gates);  // Dump all variables
 
-  not_gate uut_not (
-    .a(a),
-    .out(not_a)
-  );
+        // Teste 1: AND
+        a = 1;
+        b = 1;
+        #10;
+       
 
-  initial begin
-    a = 0;
-    b = 1;
+        // Teste 2: OR
+        a = 0;
+        b = 1;
+        #10;
+        
 
-    // Simulação das portas lógicas
-    #10 a = 1;
-    #10 b = 0;
-    #10 a = 0;
+        // Teste 3: NOT
+        a = 0;
+        #10;
+      
 
-    $finish; // Encerra a simulação
-  end
+        // Encerrar a simulação
+        $display("Simulação concluída!");
+        $finish;
+    end
 
 endmodule
