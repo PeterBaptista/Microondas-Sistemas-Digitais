@@ -1,5 +1,5 @@
 $date
-	Sat Sep 23 16:57:22 2023
+	Sat Sep 23 18:00:42 2023
 $end
 $version
 	Icarus Verilog
@@ -8,14 +8,14 @@ $timescale
 	1s
 $end
 $scope module test_counter_mod6 $end
-$var wire 3 ! count_out [2:0] $end
+$var wire 4 ! count_out [3:0] $end
 $var reg 1 " clk $end
 $var reg 1 # reset $end
 $scope module dut $end
 $var wire 1 " clk $end
-$var wire 3 $ count_out [2:0] $end
+$var wire 4 $ count_out [3:0] $end
 $var wire 1 # reset $end
-$var reg 3 % count [2:0] $end
+$var reg 4 % count [3:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end

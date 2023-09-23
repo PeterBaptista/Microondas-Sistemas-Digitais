@@ -2,7 +2,7 @@ module test_counter_mod6;
 
   reg clk;
   reg reset;
-  wire [2:0] count_out;
+  wire [3:0] count_out;
 
   // Instantiate the module under test
   counter_mod6 dut (
