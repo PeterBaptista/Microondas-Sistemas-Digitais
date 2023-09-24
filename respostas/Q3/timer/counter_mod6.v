@@ -9,6 +9,7 @@ module counter_mod6 (
   output wire [3:0] bcd_digit_output
 );
 
+
   reg [3:0] bcd_digit_reg; // Register to hold the BCD digit value
 
   always @(posedge clk) begin
@@ -29,6 +30,6 @@ module counter_mod6 (
 
   assign bcd_digit_output = bcd_digit_reg;
   assign zero = (bcd_digit_output == 4'b0000);
-  assign tc = zero;
+  assign tc = !zero;
 
 endmodule

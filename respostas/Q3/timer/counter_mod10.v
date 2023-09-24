@@ -29,6 +29,6 @@ module counter_mod10 (
 
   assign bcd_digit_output = bcd_digit_reg;
   assign zero = (bcd_digit_output == 4'b0000);
-  assign tc = zero;
+  assign tc = !zero;
 
 endmodule
