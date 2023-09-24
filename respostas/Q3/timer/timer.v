@@ -15,6 +15,8 @@ module timer (
 
   wire tc_counter_mod10_usec;
   wire tc_counter_mod6_dsec;
+  wire tc_counter_mod10_min_aux;
+  wire tc_counter_mod10_min;
 
   wire zero_counter_mod10_usec;
   wire zero_counter_mod6_dsec;
@@ -31,10 +33,12 @@ module timer (
     .load(load),
     .stop(stop),
     .tc(tc_counter_mod10_usec),
-    .zero(zero_counter_mod10),
+    .zero(zero_counter_mod10_usec),
     .bcd_digit_input(bcd_input),
     .bcd_digit_output(bcd_digit_output_counter_mod10_usec)
   );
+
+  assign tc_counter_mod10_min_aux = tc_counter_mod10_usec || tc_counter_mod6_dsec;
 
   counter_mod6 counter_mod6_dsec (
     .clk(clk),
@@ -51,7 +55,7 @@ module timer (
     .clk(clk),
     .clear(clear),
     .load(load),
-    .stop(tc_counter_mod6_dsec),
+    .stop(tc_counter_mod10_min_aux),
     .tc(tc_counter_mod10_min),
     .zero(zero_counter_mod10_min),
     .bcd_digit_input(bcd_digit_output_counter_mod6_dsec),
@@ -59,7 +63,7 @@ module timer (
   );
 
 
-  assign zero =  zero_counter_mod10_min & zero_counter_mod6_dsec & zero_counter_mod10_usec;
+  assign zero =  (zero_counter_mod10_min & zero_counter_mod6_dsec) & zero_counter_mod10_usec;
 
   assign bcd_output_usec = bcd_digit_output_counter_mod10_usec;
   assign bcd_output_dsec = bcd_digit_output_counter_mod6_dsec;

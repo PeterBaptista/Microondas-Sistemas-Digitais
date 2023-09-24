@@ -34,7 +34,7 @@ module test_timer;
     clear = 1;
     load = 0;
     stop = 0;
-    bcd_input = 4'b0000;
+    bcd_input = 4'b0011;
 
 
     // Start simulation
@@ -45,9 +45,17 @@ module test_timer;
     #10 clear = 0;
 
     // Simulate for some time
-    #3000; // Adjust the simulation time as needed
+    #500; // Adjust the simulation time as needed
+
+    load = 1;
+    bcd_input = 4'b0111;
+
+    #100
+    load = 0;
+
 
     // Load a new value into the timer
+
 
     // Allow the timer to run
     #200; // Adjust the simulation time as needed
