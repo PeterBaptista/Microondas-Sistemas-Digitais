@@ -1,0 +1,297 @@
+$date
+	Sun Sep 24 10:57:54 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test_counter_mod6 $end
+$var wire 1 ! zero $end
+$var wire 1 " tc $end
+$var wire 4 # bcd_digit_output [3:0] $end
+$var reg 4 $ bcd_digit_input [3:0] $end
+$var reg 1 % clear $end
+$var reg 1 & clk $end
+$var reg 1 ' load $end
+$var reg 1 ( stop $end
+$scope module dut $end
+$var wire 4 ) bcd_digit_input [3:0] $end
+$var wire 1 % clear $end
+$var wire 1 & clk $end
+$var wire 1 ' load $end
+$var wire 1 ( stop $end
+$var wire 1 " tc $end
+$var wire 1 ! zero $end
+$var wire 4 * bcd_digit_output [3:0] $end
+$var reg 4 + bcd_digit_reg [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx +
+bx *
+b0 )
+0(
+0'
+0&
+1%
+b0 $
+bx #
+x"
+x!
+$end
+#5
+1"
+1!
+b0 #
+b0 *
+b0 +
+1&
+#10
+0&
+0%
+#15
+0"
+0!
+b101 #
+b101 *
+b101 +
+1&
+#20
+0&
+#25
+b100 #
+b100 *
+b100 +
+1&
+#30
+0&
+#35
+b11 #
+b11 *
+b11 +
+1&
+#40
+0&
+#45
+b10 #
+b10 *
+b10 +
+1&
+#50
+0&
+#55
+b1 #
+b1 *
+b1 +
+1&
+#60
+0&
+#65
+1"
+1!
+b0 #
+b0 *
+b0 +
+1&
+#70
+0&
+#75
+0"
+0!
+b101 #
+b101 *
+b101 +
+1&
+#80
+0&
+#85
+b100 #
+b100 *
+b100 +
+1&
+#90
+0&
+#95
+b11 #
+b11 *
+b11 +
+1&
+#100
+0&
+#105
+b10 #
+b10 *
+b10 +
+1&
+#110
+0&
+b101 $
+b101 )
+1'
+#115
+b101 #
+b101 *
+b101 +
+1&
+#120
+0&
+0'
+#125
+b100 #
+b100 *
+b100 +
+1&
+#130
+0&
+#135
+b11 #
+b11 *
+b11 +
+1&
+#140
+0&
+#145
+b10 #
+b10 *
+b10 +
+1&
+#150
+0&
+#155
+b1 #
+b1 *
+b1 +
+1&
+#160
+0&
+#165
+1"
+1!
+b0 #
+b0 *
+b0 +
+1&
+#170
+0&
+#175
+0"
+0!
+b101 #
+b101 *
+b101 +
+1&
+#180
+0&
+#185
+b100 #
+b100 *
+b100 +
+1&
+#190
+0&
+#195
+b11 #
+b11 *
+b11 +
+1&
+#200
+0&
+#205
+b10 #
+b10 *
+b10 +
+1&
+#210
+0&
+#215
+b1 #
+b1 *
+b1 +
+1&
+#220
+0&
+#225
+1"
+1!
+b0 #
+b0 *
+b0 +
+1&
+#230
+0&
+#235
+0"
+0!
+b101 #
+b101 *
+b101 +
+1&
+#240
+0&
+#245
+b100 #
+b100 *
+b100 +
+1&
+#250
+0&
+#255
+b11 #
+b11 *
+b11 +
+1&
+#260
+0&
+#265
+b10 #
+b10 *
+b10 +
+1&
+#270
+0&
+#275
+b1 #
+b1 *
+b1 +
+1&
+#280
+0&
+#285
+1"
+1!
+b0 #
+b0 *
+b0 +
+1&
+#290
+0&
+#295
+0"
+0!
+b101 #
+b101 *
+b101 +
+1&
+#300
+0&
+#305
+b100 #
+b100 *
+b100 +
+1&
+#310
+0&
+#315
+b11 #
+b11 *
+b11 +
+1&
+#320
+0&
