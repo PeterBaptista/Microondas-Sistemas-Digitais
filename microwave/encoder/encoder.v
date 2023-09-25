@@ -1,7 +1,7 @@
-`include "priority_encoder.v"
-`include "div_100.v"
-`include "mux_2to1.v"
-`include "counter_0to7.v"
+`include "encoder/priority_encoder.v"
+`include "encoder/div_100.v"
+`include "encoder/mux_2to1.v"
+`include "encoder/counter_0to7.v"
 
 module encoder( input wire [9:0] keypad,
                 input wire enablen,

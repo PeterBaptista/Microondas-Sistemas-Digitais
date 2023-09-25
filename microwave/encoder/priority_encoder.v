@@ -3,7 +3,7 @@ module priority_encoder (
   input wire enablen,
   output reg [3:0] bcd_output,
   output reg valid
-);
+); 
 
   always @ (keypad, enablen) begin
     if (!enablen) begin

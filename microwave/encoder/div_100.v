@@ -6,7 +6,7 @@ module div_100 (
     reg [6:0] count = 7'b0;  // Registrador de contagem de 7 bits
     reg cycle_aux = 0;
 
-    assign cycle = cycle_aux;
+    
 
     always @(posedge clk) begin
         begin
@@ -20,4 +20,6 @@ module div_100 (
                 end
         end
     end
+
+    assign cycle = cycle_aux;
 endmodule

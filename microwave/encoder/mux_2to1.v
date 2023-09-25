@@ -5,7 +5,7 @@ module mux_2to1 (
   output wire pgt_1hz    // Output
 );
 
-  assign pgt_1hz = (enablen == 1'b0) ? delay : cycle;
+  assign pgt_1hz = (enablen  ? delay : cycle);
   
 
 endmodule

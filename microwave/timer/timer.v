@@ -1,11 +1,15 @@
-`include "counter_mod10.v"
-`include "counter_mod6.v"
+`include "timer/counter_mod10.v"
+`include "timer/counter_mod6.v"
+
+//mudar o load para loadn
+//mudar o stop para enable
+//mudar clear para clearn
 
 module timer (
   input wire clk,
-  input wire clear,
-  input wire load,
-  input wire stop,
+  input wire clearn,
+  input wire loadn,
+  input wire enable,
   input wire [3:0] bcd_input,
   output wire zero,
   output wire [3:0] bcd_output_usec,
@@ -29,9 +33,9 @@ module timer (
   // Instantiate the counter_mod10 module
   counter_mod10 counter_mod10_usec (
     .clk(clk),
-    .clear(clear),
-    .load(load),
-    .stop(stop),
+    .clearn(clearn),
+    .loadn(loadn),
+    .enable(enable),
     .tc(tc_counter_mod10_usec),
     .zero(zero_counter_mod10_usec),
     .bcd_digit_input(bcd_input),
@@ -42,9 +46,9 @@ module timer (
 
   counter_mod6 counter_mod6_dsec (
     .clk(clk),
-    .clear(clear),
-    .load(load),
-    .stop(tc_counter_mod10_usec),
+    .clearn(clearn),
+    .loadn(loadn),
+    .enable(tc_counter_mod10_usec),
     .tc(tc_counter_mod6_dsec),
     .zero(zero_counter_mod6_dsec),
     .bcd_digit_input(bcd_digit_output_counter_mod10_usec),
@@ -53,9 +57,9 @@ module timer (
 
   counter_mod10 counter_mod10_min (
     .clk(clk),
-    .clear(clear),
-    .load(load),
-    .stop(tc_counter_mod10_min_aux),
+    .clearn(clearn),
+    .loadn(loadn),
+    .enable(tc_counter_mod10_min_aux),
     .tc(tc_counter_mod10_min),
     .zero(zero_counter_mod10_min),
     .bcd_digit_input(bcd_digit_output_counter_mod6_dsec),

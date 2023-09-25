@@ -1,5 +1,5 @@
-`include "logic_circuits.v"
-`include "sr_latch.v"
+`include "magnetron/logic_circuits.v"
+`include "magnetron/sr_latch.v"
 
 module magnetron_control(
     input wire startn,
