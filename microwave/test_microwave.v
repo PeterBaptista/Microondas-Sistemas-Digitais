@@ -1,3 +1,5 @@
+`timescale 1ms/1ms
+
 module test_microwave;
 
   // Define inputs and outputs for the testbench
@@ -25,43 +27,78 @@ module test_microwave;
     .second_tens_display(second_tens_display),
     .minutes_display(minutes_display)
   );
+  initial clk = 0;
+   always #5 clk = ~clk;
 
   // Initialize the VCD file
   initial begin
     $dumpfile("microwave_waveform.vcd"); // Specify the waveform file name
     $dumpvars(0, test_microwave);  // Dump all variables
     // Initialize inputs
-    keypad = 10'b0010000000;
-    clk = 1;
+    keypad = 9'b000000000;
+            door_closed = 0;
+            stopn = 1;
+            startn = 1;
 
-    door_closed = 1;
-    stopn = 0;
-    clearn = 0;
-    startn = 0;
+            // Inicializando o contador
+            clearn = 1; #1;
+            clearn = 0; #1;
+            clearn = 1;
 
-    // Simulate the microwave operation
-    // Add more test scenarios and stimulus code here
+            // Digitando o 2
+            #1100;
+            keypad = 10'b0000000100;
+            #1100;
+            keypad = 10'b0000000000;
 
-    // Example: Start the microwave
-    
+            // Digitando o 5
+            #1100;
+            keypad = 10'b0001000000;
+            #1100;
+            keypad = 10'b0000000000;
 
-    // Example: Stop the microwave
-    #100;
-    //stopn = 1;
-    #100;
-    //stopn = 0;
-    keypad = 10'b0000000000;
+            // Digitando o 9
+            #1100;
+            keypad = 10'b1000000000;
+            #1100;
+            keypad = 10'b0000000000;
 
-    // Monitor the outputs and display the results
-    // Add assertions or checks as needed
-    #1000000
-    // Add a simulation end condition (e.g., $finish;) when done testing
-    $finish;
-  end
+            // Digitando o 9
+            #1100;
+            keypad = 10'b1000000000;
+            #1100;
+            keypad = 10'b0000000000;
+
+            // Digitando o 9
+            #1100;
+            keypad = 10'b1000000000;
+            #1100;
+            keypad = 10'b0000000000;
+
+            // Tentando abrir
+            #1100;
+            startn = 0;
+            #1100;
+            startn = 1;
+            #1100;
+            // Fechando a porta
+            door_closed = 1;
+            #1000;
+            startn = 0;
+            #1000;
+            startn = 1;
+            #2000;
+            // Pausando o timer
+            #1000;
+            startn = 1;
+            #2000;
+            // Abrindo porta
+            door_closed = 1;
+            #3000000;
+            $finish();
+    end
 
   // Clock generation
-  always begin
-    #1 clk = ~clk;
-  end
+ 
 
 endmodule

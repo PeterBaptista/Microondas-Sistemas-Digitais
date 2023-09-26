@@ -18,7 +18,7 @@ always @ (negedge clearn)
 
   always @(posedge clk) begin
     
-     if (!enable) begin
+     if (enable) begin
         if (bcd_digit_reg == 4'b0000) begin
           bcd_digit_reg <= 4'b1001; // loadn 9 when it rolls over from 0
         end else begin
@@ -27,13 +27,13 @@ always @ (negedge clearn)
       end
 
 
-    if(loadn)begin 
+    if(!loadn)begin 
         bcd_digit_reg <= bcd_digit_input;
     end
 end 
 
   assign bcd_digit_output = bcd_digit_reg;
   assign zero = (bcd_digit_reg == 4'b0000);
-  assign tc = !zero;
+  assign tc = enable & zero;
 
 endmodule

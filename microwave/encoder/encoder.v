@@ -15,11 +15,21 @@ module encoder( input wire [9:0] keypad,
     wire delay_aux;
     wire cycle_aux;
 
+    reg keypad_pressed = 0;
+
+    always@(keypad) begin
+        if(keypad == 10'b00000_00000)
+            keypad_pressed <= 0;
+        else
+            keypad_pressed <= 1;
+    end
+
+    assign loadn = !keypad_pressed;
+
     priority_encoder priority_encoder_inst (
         .keypad(keypad),
         .enablen(enablen),
-        .bcd_output(bcd_output),
-        .valid(loadn)
+        .bcd_output(bcd_output)
     );
 
     div_100 div_100_inst (
