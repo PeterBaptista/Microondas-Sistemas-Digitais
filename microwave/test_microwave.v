@@ -90,6 +90,7 @@ module test_microwave;
             #2000;
             // Pausando o timer
             #1000;
+            stopn = 0;
             startn = 1;
             #2000;
             // Abrindo porta
