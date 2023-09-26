@@ -1,0 +1,158 @@
+$date
+	Thu May 12 22:55:10 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module decodificador_teste $end
+$var wire 7 ! OutSegundos_TB [6:0] $end
+$var wire 7 " OutMinutos_TB [6:0] $end
+$var wire 7 # OutDezena_TB [6:0] $end
+$var reg 4 $ DezenaSeg_TB [3:0] $end
+$var reg 4 % Minutos_TB [3:0] $end
+$var reg 4 & Segundos_TB [3:0] $end
+$scope module DUT $end
+$var wire 4 ' DezenaSeg [3:0] $end
+$var wire 4 ( Minutos [3:0] $end
+$var wire 4 ) Segundos [3:0] $end
+$var reg 7 * OutDezena [6:0] $end
+$var reg 7 + OutMinutos [6:0] $end
+$var reg 7 , OutSegundos [6:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1111110 ,
+b1111110 +
+b1111110 *
+b0 )
+b0 (
+b0 '
+b0 &
+b0 %
+b0 $
+b1111110 #
+b1111110 "
+b1111110 !
+$end
+#5
+b110000 !
+b110000 ,
+b110000 #
+b110000 *
+b110000 "
+b110000 +
+b1 &
+b1 )
+b1 $
+b1 '
+b1 %
+b1 (
+#10
+b1101101 !
+b1101101 ,
+b1101101 #
+b1101101 *
+b1101101 "
+b1101101 +
+b10 &
+b10 )
+b10 $
+b10 '
+b10 %
+b10 (
+#15
+b1111001 !
+b1111001 ,
+b1111001 #
+b1111001 *
+b1111001 "
+b1111001 +
+b11 &
+b11 )
+b11 $
+b11 '
+b11 %
+b11 (
+#20
+b110011 !
+b110011 ,
+b110011 #
+b110011 *
+b110011 "
+b110011 +
+b100 &
+b100 )
+b100 $
+b100 '
+b100 %
+b100 (
+#25
+b1011011 !
+b1011011 ,
+b1011011 #
+b1011011 *
+b1011011 "
+b1011011 +
+b101 &
+b101 )
+b101 $
+b101 '
+b101 %
+b101 (
+#30
+b1011111 !
+b1011111 ,
+b1011111 #
+b1011111 *
+b1011111 "
+b1011111 +
+b110 &
+b110 )
+b110 $
+b110 '
+b110 %
+b110 (
+#35
+b1110000 !
+b1110000 ,
+b1110000 #
+b1110000 *
+b1110000 "
+b1110000 +
+b111 &
+b111 )
+b111 $
+b111 '
+b111 %
+b111 (
+#40
+b1111111 !
+b1111111 ,
+b1111111 #
+b1111111 *
+b1111111 "
+b1111111 +
+b1000 &
+b1000 )
+b1000 $
+b1000 '
+b1000 %
+b1000 (
+#45
+b1111011 !
+b1111011 ,
+b1111011 #
+b1111011 *
+b1111011 "
+b1111011 +
+b1001 &
+b1001 )
+b1001 $
+b1001 '
+b1001 %
+b1001 (

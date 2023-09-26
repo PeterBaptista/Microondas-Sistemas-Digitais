@@ -1,0 +1,63 @@
+$date
+	Mon Oct 17 13:08:05 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module latch_teste $end
+$var wire 1 ! Qtb $end
+$var reg 1 " resettb $end
+$var reg 1 # settb $end
+$scope module DUT $end
+$var wire 1 $ reset $end
+$var wire 1 % set $end
+$var reg 1 & Q $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x&
+x%
+x$
+x#
+x"
+x!
+$end
+#10000
+0"
+0$
+0#
+0%
+#20000
+0&
+0!
+1"
+1$
+#30000
+0"
+0$
+#40000
+1&
+1!
+1#
+1%
+#50000
+0#
+0%
+#60000
+0&
+0!
+1"
+1$
+1#
+1%
+#70000
+0"
+0$
+0#
+0%
+#80000

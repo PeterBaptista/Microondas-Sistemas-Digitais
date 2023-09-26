@@ -1,0 +1,128 @@
+$date
+	Mon Oct 17 15:19:34 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module codificador_priori_teste $end
+$var wire 4 ! BCD_TB [3:0] $end
+$var wire 1 " dado_valido_TB $end
+$var reg 1 # enablen_TB $end
+$var reg 10 $ teclado_TB [9:0] $end
+$scope module DUT $end
+$var wire 1 % enablen $end
+$var wire 10 & teclado [9:0] $end
+$var reg 4 ' BCD [3:0] $end
+$var reg 1 ( dado_valido $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1(
+b1111 '
+b1000000000 &
+0%
+b1000000000 $
+0#
+1"
+b1111 !
+$end
+#5
+b110 '
+b110 !
+b100000000 $
+b100000000 &
+#10
+b1110 '
+b1110 !
+b10000000 $
+b10000000 &
+#15
+b1 '
+b1 !
+b1000000 $
+b1000000 &
+#20
+b1001 '
+b1001 !
+b100000 $
+b100000 &
+#25
+b101 '
+b101 !
+b10000 $
+b10000 &
+#30
+b1101 '
+b1101 !
+b1000 $
+b1000 &
+#35
+b11 '
+b11 !
+b100 $
+b100 &
+#40
+b1011 '
+b1011 !
+b10 $
+b10 &
+#45
+b111 '
+b111 !
+b1 $
+b1 &
+#50
+1#
+1%
+b1000000000 $
+b1000000000 &
+#55
+b100000000 $
+b100000000 &
+#60
+b10000000 $
+b10000000 &
+#65
+b1000000 $
+b1000000 &
+#70
+b100000 $
+b100000 &
+#75
+b10000 $
+b10000 &
+#80
+b1000 $
+b1000 &
+#85
+b100 $
+b100 &
+#90
+b10 $
+b10 &
+#95
+b1 $
+b1 &
+#100
+0(
+0"
+0#
+0%
+b1000000001 $
+b1000000001 &
+#105
+b1000001001 $
+b1000001001 &
+#110
+1#
+1%
+b1000000001 $
+b1000000001 &
+#115
+b1000001001 $
+b1000001001 &

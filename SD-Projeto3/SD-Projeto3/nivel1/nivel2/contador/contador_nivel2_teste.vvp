@@ -1,0 +1,320 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01111B48 .scope module, "contador_nivel2_teste" "contador_nivel2_teste" 2 4;
+ .timescale -9 -12;
+v0111FDC8_0 .var "CLK_tb", 0 0;
+v01120030_0 .var "clearn_tb", 0 0;
+v01120450_0 .var "data_tb", 3 0;
+v011201E8_0 .var "enable_tb", 0 0;
+v01120558_0 .var "loadn_tb", 0 0;
+v011203F8_0 .net "minutes_tb", 3 0, v01117998_0; 1 drivers
+v01120500_0 .net "secs_tb", 3 0, v0111FD18_0; 1 drivers
+v01120240_0 .net "tens_secs_tb", 3 0, v01117AA0_0; 1 drivers
+v011204A8_0 .net "timer_done_tb", 0 0, L_01126078; 1 drivers
+S_01112098 .scope module, "DUT" "contador_nivel2" 2 10, 3 6, S_01111B48;
+ .timescale -9 -12;
+L_011263F8 .functor AND 1, L_011203A0, L_01120138, C4<1>, C4<1>;
+L_01126078 .functor AND 1, L_011263F8, L_01120190, C4<1>, C4<1>;
+v0111FB08_0 .net *"_s0", 0 0, L_011263F8; 1 drivers
+v0111FAB0_0 .net "clear", 0 0, v01120030_0; 1 drivers
+v0111FA00_0 .net "clk", 0 0, v0111FDC8_0; 1 drivers
+v0111FA58_0 .alias "count_ds", 3 0, v01120240_0;
+v0111FE20_0 .alias "count_m", 3 0, v011203F8_0;
+v0111FED0_0 .alias "count_us", 3 0, v01120500_0;
+v0111FBB8_0 .net "data", 3 0, v01120450_0; 1 drivers
+v0111F798_0 .net "enable", 0 0, v011201E8_0; 1 drivers
+v0111F7F0_0 .net "load", 0 0, v01120558_0; 1 drivers
+v0111F848_0 .net "tc1", 0 0, L_01126238; 1 drivers
+v0111F8A0_0 .net "tc2", 0 0, L_01125E80; 1 drivers
+v0111FC68_0 .net "tc3", 0 0, L_01126430; 1 drivers
+v0111FE78_0 .alias "zero", 0 0, v011204A8_0;
+v0111FCC0_0 .net "zero1", 0 0, L_011203A0; 1 drivers
+v0111FD70_0 .net "zero2", 0 0, L_01120138; 1 drivers
+v0111FF80_0 .net "zero3", 0 0, L_01120190; 1 drivers
+S_01112918 .scope module, "us" "contador_mod10" 3 24, 4 1, S_01112098;
+ .timescale -9 -12;
+L_01126238 .functor AND 1, v011201E8_0, L_011203A0, C4<1>, C4<1>;
+v0111F740_0 .net *"_s0", 3 0, C4<0000>; 1 drivers
+v0111FB60_0 .net *"_s2", 0 0, L_011200E0; 1 drivers
+v0111FFD8_0 .net *"_s4", 0 0, C4<1>; 1 drivers
+v0111F690_0 .net *"_s6", 0 0, C4<0>; 1 drivers
+v0111F8F8_0 .alias "clearn", 0 0, v0111FAB0_0;
+v0111F9A8_0 .alias "clk", 0 0, v0111FA00_0;
+v0111FD18_0 .var "count", 3 0;
+v0111FC10_0 .alias "count_end", 0 0, v0111FCC0_0;
+v0111F6E8_0 .alias "data", 3 0, v0111FBB8_0;
+v0111FF28_0 .alias "en", 0 0, v0111F798_0;
+v0111F950_0 .alias "load", 0 0, v0111F7F0_0;
+v0111F638_0 .alias "tc", 0 0, v0111F848_0;
+L_011200E0 .cmp/eq 4, v0111FD18_0, C4<0000>;
+L_011203A0 .functor MUXZ 1, C4<0>, C4<1>, L_011200E0, C4<>;
+S_01111F00 .scope module, "ds" "contador_mod6" 3 25, 5 1, S_01112098;
+ .timescale -9 -12;
+L_01125E80 .functor AND 1, L_01126238, L_01120138, C4<1>, C4<1>;
+v01117C58_0 .net *"_s0", 3 0, C4<0000>; 1 drivers
+v01117CB0_0 .net *"_s2", 0 0, L_01120298; 1 drivers
+v011180D0_0 .net *"_s4", 0 0, C4<1>; 1 drivers
+v01117EC0_0 .net *"_s6", 0 0, C4<0>; 1 drivers
+v01117B50_0 .alias "clearn", 0 0, v0111FAB0_0;
+v01117E68_0 .alias "clk", 0 0, v0111FA00_0;
+v01117AA0_0 .var "count", 3 0;
+v01117DB8_0 .alias "count_end", 0 0, v0111FD70_0;
+v01117E10_0 .alias "data", 3 0, v01120500_0;
+v01117A48_0 .alias "en", 0 0, v0111F848_0;
+v01120088_0 .alias "load", 0 0, v0111F7F0_0;
+v0111F5E0_0 .alias "tc", 0 0, v0111F8A0_0;
+L_01120298 .cmp/eq 4, v01117AA0_0, C4<0000>;
+L_01120138 .functor MUXZ 1, C4<0>, C4<1>, L_01120298, C4<>;
+S_01112230 .scope module, "ms" "contador_mod10" 3 29, 4 1, S_01112098;
+ .timescale -9 -12;
+L_01126430 .functor AND 1, L_01125E80, L_01120190, C4<1>, C4<1>;
+v01117BA8_0 .net *"_s0", 3 0, C4<0000>; 1 drivers
+v01117FC8_0 .net *"_s2", 0 0, L_011202F0; 1 drivers
+v01117C00_0 .net *"_s4", 0 0, C4<1>; 1 drivers
+v011179F0_0 .net *"_s6", 0 0, C4<0>; 1 drivers
+v01117F18_0 .alias "clearn", 0 0, v0111FAB0_0;
+v01117F70_0 .alias "clk", 0 0, v0111FA00_0;
+v01117998_0 .var "count", 3 0;
+v01117D60_0 .alias "count_end", 0 0, v0111FF80_0;
+v01118020_0 .alias "data", 3 0, v01120240_0;
+v01117D08_0 .alias "en", 0 0, v0111F8A0_0;
+v01118078_0 .alias "load", 0 0, v0111F7F0_0;
+v01117AF8_0 .alias "tc", 0 0, v0111FC68_0;
+E_011158E8 .event posedge, v01117F70_0;
+E_011158A8 .event negedge, v01117F18_0;
+L_011202F0 .cmp/eq 4, v01117998_0, C4<0000>;
+L_01120190 .functor MUXZ 1, C4<0>, C4<1>, L_011202F0, C4<>;
+    .scope S_01112918;
+T_0 ;
+    %wait E_011158A8;
+    %set/v v0111FD18_0, 0, 4;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_01112918;
+T_1 ;
+    %wait E_011158E8;
+    %load/v 8, v0111FF28_0, 1;
+    %jmp/0xz  T_1.0, 8;
+    %load/v 8, v0111FD18_0, 4;
+    %cmpi/u 8, 9, 4;
+    %jmp/1 T_1.2, 6;
+    %cmpi/u 8, 1, 4;
+    %jmp/1 T_1.3, 6;
+    %cmpi/u 8, 0, 4;
+    %jmp/1 T_1.4, 6;
+    %load/v 8, v0111FD18_0, 4;
+    %subi 8, 1, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v0111FD18_0, 0, 8;
+    %jmp T_1.6;
+T_1.2 ;
+    %movi 8, 8, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v0111FD18_0, 0, 8;
+    %jmp T_1.6;
+T_1.3 ;
+    %ix/load 0, 4, 0;
+    %assign/v0 v0111FD18_0, 0, 0;
+    %jmp T_1.6;
+T_1.4 ;
+    %movi 8, 9, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v0111FD18_0, 0, 8;
+    %jmp T_1.6;
+T_1.6 ;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/v 8, v0111F950_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_1.7, 8;
+    %load/v 8, v0111F6E8_0, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v0111FD18_0, 0, 8;
+T_1.7 ;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_01111F00;
+T_2 ;
+    %wait E_011158A8;
+    %set/v v01117AA0_0, 0, 4;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_01111F00;
+T_3 ;
+    %wait E_011158E8;
+    %load/v 8, v01117A48_0, 1;
+    %jmp/0xz  T_3.0, 8;
+    %load/v 8, v01117AA0_0, 4;
+    %cmpi/u 8, 5, 4;
+    %jmp/1 T_3.2, 6;
+    %cmpi/u 8, 1, 4;
+    %jmp/1 T_3.3, 6;
+    %cmpi/u 8, 0, 4;
+    %jmp/1 T_3.4, 6;
+    %load/v 8, v01117AA0_0, 4;
+    %subi 8, 1, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117AA0_0, 0, 8;
+    %jmp T_3.6;
+T_3.2 ;
+    %movi 8, 4, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117AA0_0, 0, 8;
+    %jmp T_3.6;
+T_3.3 ;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117AA0_0, 0, 0;
+    %jmp T_3.6;
+T_3.4 ;
+    %movi 8, 5, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117AA0_0, 0, 8;
+    %jmp T_3.6;
+T_3.6 ;
+    %jmp T_3.1;
+T_3.0 ;
+    %load/v 8, v01120088_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_3.7, 8;
+    %load/v 8, v01117E10_0, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117AA0_0, 0, 8;
+T_3.7 ;
+T_3.1 ;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_01112230;
+T_4 ;
+    %wait E_011158A8;
+    %set/v v01117998_0, 0, 4;
+    %jmp T_4;
+    .thread T_4;
+    .scope S_01112230;
+T_5 ;
+    %wait E_011158E8;
+    %load/v 8, v01117D08_0, 1;
+    %jmp/0xz  T_5.0, 8;
+    %load/v 8, v01117998_0, 4;
+    %cmpi/u 8, 9, 4;
+    %jmp/1 T_5.2, 6;
+    %cmpi/u 8, 1, 4;
+    %jmp/1 T_5.3, 6;
+    %cmpi/u 8, 0, 4;
+    %jmp/1 T_5.4, 6;
+    %load/v 8, v01117998_0, 4;
+    %subi 8, 1, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117998_0, 0, 8;
+    %jmp T_5.6;
+T_5.2 ;
+    %movi 8, 8, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117998_0, 0, 8;
+    %jmp T_5.6;
+T_5.3 ;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117998_0, 0, 0;
+    %jmp T_5.6;
+T_5.4 ;
+    %movi 8, 9, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117998_0, 0, 8;
+    %jmp T_5.6;
+T_5.6 ;
+    %jmp T_5.1;
+T_5.0 ;
+    %load/v 8, v01118078_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_5.7, 8;
+    %load/v 8, v01118020_0, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v01117998_0, 0, 8;
+T_5.7 ;
+T_5.1 ;
+    %jmp T_5;
+    .thread T_5;
+    .scope S_01111B48;
+T_6 ;
+    %vpi_call 2 18 "$dumpfile", "contador_nivel2_teste.vcd";
+    %vpi_call 2 19 "$dumpvars", 1'sb0, S_01111B48;
+    %set/v v0111FDC8_0, 0, 1;
+    %set/v v011201E8_0, 0, 1;
+    %set/v v01120558_0, 0, 1;
+    %end;
+    .thread T_6;
+    .scope S_01111B48;
+T_7 ;
+    %delay 1000, 0;
+    %load/v 8, v01120558_0, 1;
+    %jmp/0  T_7.0, 8;
+    %load/v 9, v0111FDC8_0, 1;
+    %inv 9, 1;
+    %jmp/1  T_7.2, 8;
+T_7.0 ; End of true expr.
+    %load/v 10, v0111FDC8_0, 1;
+    %jmp/0  T_7.1, 8;
+ ; End of false expr.
+    %blend  9, 10, 1; Condition unknown.
+    %jmp  T_7.2;
+T_7.1 ;
+    %mov 9, 10, 1; Return false value
+T_7.2 ;
+    %set/v v0111FDC8_0, 9, 1;
+    %jmp T_7;
+    .thread T_7;
+    .scope S_01111B48;
+T_8 ;
+    %set/v v01120030_0, 1, 1;
+    %delay 500, 0;
+    %set/v v01120030_0, 0, 1;
+    %delay 500, 0;
+    %set/v v01120030_0, 1, 1;
+    %delay 500, 0;
+    %movi 8, 2, 4;
+    %set/v v01120450_0, 8, 4;
+    %delay 40, 0;
+    %set/v v0111FDC8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0111FDC8_0, 0, 1;
+    %delay 950, 0;
+    %movi 8, 1, 4;
+    %set/v v01120450_0, 8, 4;
+    %delay 40, 0;
+    %set/v v0111FDC8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0111FDC8_0, 0, 1;
+    %delay 950, 0;
+    %movi 8, 7, 4;
+    %set/v v01120450_0, 8, 4;
+    %delay 40, 0;
+    %set/v v0111FDC8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0111FDC8_0, 0, 1;
+    %delay 950, 0;
+    %movi 8, 9, 4;
+    %set/v v01120450_0, 8, 4;
+    %delay 40, 0;
+    %set/v v0111FDC8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0111FDC8_0, 0, 1;
+    %delay 950, 0;
+    %set/v v011201E8_0, 1, 1;
+    %set/v v01120558_0, 1, 1;
+    %delay 1000000, 0;
+    %vpi_call 2 53 "$display", "Successful";
+    %vpi_call 2 54 "$finish";
+    %end;
+    .thread T_8;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "contador_nivel2_teste.v";
+    "./contador_nivel2.v";
+    "./nivel3/contador_mod10/contador_mod10.v";
+    "./nivel3/contador_mod6/contador_mod6.v";

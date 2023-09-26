@@ -1,0 +1,136 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01189248 .scope module, "contador_mod10_teste" "contador_mod10_teste" 2 4;
+ .timescale -9 -12;
+v011BFD98_0 .var "clearn", 0 0;
+v011C0000_0 .var "clk", 0 0;
+v011BFA80_0 .net "count", 3 0, v011816D8_0; 1 drivers
+v011BFEA0_0 .net "count_endTB", 0 0, L_011BFC90; 1 drivers
+v011BFBE0_0 .var "data", 3 0;
+v011BF8C8_0 .var "en", 0 0;
+v011BF978_0 .var/i "i", 31 0;
+v011BFC38_0 .var "load", 0 0;
+v011BFFA8_0 .net "tc", 0 0, L_011C3048; 1 drivers
+S_01188A50 .scope module, "dut" "contador_mod10" 2 14, 3 1, S_01189248;
+ .timescale 0 0;
+L_011C3048 .functor AND 1, v011BF8C8_0, L_011BFC90, C4<1>, C4<1>;
+v0118A678_0 .net *"_s0", 3 0, C4<0000>; 1 drivers
+v0118A6D0_0 .net *"_s2", 0 0, L_011BF9D0; 1 drivers
+v011C1AE0_0 .net *"_s4", 0 0, C4<1>; 1 drivers
+v011C1B38_0 .net *"_s6", 0 0, C4<0>; 1 drivers
+v011C1B90_0 .net "clearn", 0 0, v011BFD98_0; 1 drivers
+v01181680_0 .net "clk", 0 0, v011C0000_0; 1 drivers
+v011816D8_0 .var "count", 3 0;
+v01181730_0 .alias "count_end", 0 0, v011BFEA0_0;
+v0118EA90_0 .net "data", 3 0, v011BFBE0_0; 1 drivers
+v0118EAE8_0 .net "en", 0 0, v011BF8C8_0; 1 drivers
+v0118EB40_0 .net "load", 0 0, v011BFC38_0; 1 drivers
+v0118EB98_0 .alias "tc", 0 0, v011BFFA8_0;
+E_0118AB58 .event posedge, v01181680_0;
+E_0118ACF8 .event negedge, v011C1B90_0;
+L_011BF9D0 .cmp/eq 4, v011816D8_0, C4<0000>;
+L_011BFC90 .functor MUXZ 1, C4<0>, C4<1>, L_011BF9D0, C4<>;
+    .scope S_01188A50;
+T_0 ;
+    %wait E_0118ACF8;
+    %set/v v011816D8_0, 0, 4;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_01188A50;
+T_1 ;
+    %wait E_0118AB58;
+    %load/v 8, v0118EAE8_0, 1;
+    %jmp/0xz  T_1.0, 8;
+    %load/v 8, v011816D8_0, 4;
+    %cmpi/u 8, 9, 4;
+    %jmp/1 T_1.2, 6;
+    %cmpi/u 8, 1, 4;
+    %jmp/1 T_1.3, 6;
+    %cmpi/u 8, 0, 4;
+    %jmp/1 T_1.4, 6;
+    %load/v 8, v011816D8_0, 4;
+    %subi 8, 1, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v011816D8_0, 0, 8;
+    %jmp T_1.6;
+T_1.2 ;
+    %movi 8, 8, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v011816D8_0, 0, 8;
+    %jmp T_1.6;
+T_1.3 ;
+    %ix/load 0, 4, 0;
+    %assign/v0 v011816D8_0, 0, 0;
+    %jmp T_1.6;
+T_1.4 ;
+    %movi 8, 9, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v011816D8_0, 0, 8;
+    %jmp T_1.6;
+T_1.6 ;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/v 8, v0118EB40_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_1.7, 8;
+    %load/v 8, v0118EA90_0, 4;
+    %ix/load 0, 4, 0;
+    %assign/v0 v011816D8_0, 0, 8;
+T_1.7 ;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_01189248;
+T_2 ;
+    %vpi_call 2 19 "$dumpfile", "contador_mod10_teste.vcd";
+    %vpi_call 2 20 "$dumpvars", 1'sb0, S_01189248;
+    %cassign/v v011BFC38_0, 1, 1;
+    %cassign/v v011BF8C8_0, 0, 1;
+    %cassign/v v011BFD98_0, 1, 1;
+    %movi 8, 6, 4;
+    %cassign/v v011BFBE0_0, 8, 4;
+    %delay 5000, 0;
+    %cassign/v v011BFC38_0, 0, 1;
+    %delay 5000, 0;
+    %cassign/v v011BFC38_0, 1, 1;
+    %delay 5000, 0;
+    %cassign/v v011BF8C8_0, 1, 1;
+    %end;
+    .thread T_2;
+    .scope S_01189248;
+T_3 ;
+    %set/v v011C0000_0, 0, 1;
+    %end;
+    .thread T_3;
+    .scope S_01189248;
+T_4 ;
+    %delay 5000, 0;
+    %load/v 12, v011C0000_0, 1;
+    %inv 12, 1;
+    %set/v v011C0000_0, 12, 1;
+    %set/v v011BF978_0, 0, 32;
+T_4.0 ;
+    %load/v 12, v011BF978_0, 32;
+   %cmpi/s 12, 26, 32;
+    %jmp/0xz T_4.1, 5;
+    %delay 5000, 0;
+    %load/v 12, v011C0000_0, 1;
+    %inv 12, 1;
+    %set/v v011C0000_0, 12, 1;
+    %ix/load 0, 1, 0;
+    %load/vp0/s 12, v011BF978_0, 32;
+    %set/v v011BF978_0, 12, 32;
+    %jmp T_4.0;
+T_4.1 ;
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "contador_mod10_teste.v";
+    "./contador_mod10.v";
